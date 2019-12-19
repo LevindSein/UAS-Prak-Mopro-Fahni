@@ -83,7 +83,7 @@
                         android:textColorHint="@color/colorHint">
 
                         <EditText
-                            android:id="@+id/username"
+                            android:id="@+id/et_input_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -117,7 +117,7 @@
                         android:textColorHint="@color/colorHint">
 
                         <EditText
-                            android:id="@+id/pass"
+                            android:id="@+id/et_input_password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -131,7 +131,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/login"
+                    android:id="@+id/btn_login"
                     android:layout_below="@id/lnpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -145,14 +145,14 @@
                     android:id="@+id/belum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/login"
+                    android:layout_below="@+id/btn_login"
                     android:layout_marginTop="10dp"
                     android:layout_centerInParent="true"
                     android:text="@string/belum"
                     android:textSize="16sp"
                     android:textColor="@color/colorBelum"/>
                 <Button
-                    android:id="@+id/register"
+                    android:id="@+id/txt_link_signup"
                     android:layout_below="@id/belum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
