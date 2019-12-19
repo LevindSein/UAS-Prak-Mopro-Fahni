@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity"
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".auth.RegisterActivity" />
+        <activity
+            android:name=".auth.LoginActivity"
             android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
