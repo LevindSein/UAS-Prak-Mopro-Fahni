@@ -1,171 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/rootView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background" />
-
-        <ImageView
-            android:id="@+id/image_back"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:alpha="0.4"
-            android:src="@drawable/backrestaurant" />
-
-        <TextView
-            android:id="@+id/textlogo"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/lucycat"
-            android:text="@string/login_name"
-            android:textColor="@color/colorWhite"
-            android:textSize="45sp" />
-
-        <ImageView
-            android:id="@+id/image_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:maxWidth="100dp"
-            android:maxHeight="100dp"
-            android:scaleType="fitCenter"
-            android:layout_below="@+id/textlogo"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/white_user" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <RelativeLayout
-            android:layout_below="@+id/image_user"
+            android:id="@+id/rootView"
             android:layout_width="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="30dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/lnemail"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:alpha="0.4"
+                android:src="@drawable/backrestaurant"/>
 
-                <com.mikepenz.iconics.view.IconicsImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    app:iiv_color="@color/colorWhite"
-                    app:iiv_icon="faw_user" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/colorHint">
-
-                    <EditText
-                        android:id="@+id/username"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:hint="@string/username"
-                        android:imeOptions="actionNext"
-                        android:backgroundTint="@color/colorWhite"
-                        android:textColor="@color/colorWhite"
-                        android:inputType="text"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/lnpassword"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/lnemail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <com.mikepenz.iconics.view.IconicsImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    app:iiv_color="@color/colorWhite"
-                    app:iiv_icon="faw_key" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/colorHint">
-
-                    <EditText
-                        android:id="@+id/pass"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:hint="@string/password"
-                        android:imeOptions="actionNext"
-                        android:backgroundTint="@color/colorWhite"
-                        android:inputType="textPassword"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/login"
-                android:layout_below="@id/lnpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_white"
-                android:text="@string/login"
-                android:textAllCaps="false"
-                android:textColor="@color/colorRose"
-                android:textSize="15sp"/>
             <TextView
-                android:id="@+id/belum"
+                android:id="@+id/textlogo"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/login"
-                android:layout_marginTop="10dp"
-                android:layout_centerInParent="true"
-                android:text="@string/belum"
-                android:textSize="16sp"
-                android:textColor="@color/colorBelum"/>
-            <Button
-                android:id="@+id/register"
-                android:layout_below="@id/belum"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lucycat"
+                android:text="@string/login_name"
+                android:textColor="@color/colorWhite"
+                android:textSize="45sp" />
+
+            <ImageView
+                android:id="@+id/image_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="70dp"
-                android:background="@drawable/button_transparent"
-                android:text="@string/register"
-                android:gravity="center"
-                android:textAllCaps="false"
-                android:textColor="@color/colorRose"
-                android:textSize="15sp"/>
+                android:adjustViewBounds="true"
+                android:maxWidth="100dp"
+                android:maxHeight="100dp"
+                android:scaleType="fitCenter"
+                android:layout_below="@+id/textlogo"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/white_user" />
+
+            <RelativeLayout
+                android:layout_below="@+id/image_user"
+                android:layout_width="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="30dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/lnemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:iiv_color="@color/colorWhite"
+                        app:iiv_icon="faw_user" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/colorHint">
+
+                        <EditText
+                            android:id="@+id/username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:hint="@string/username"
+                            android:imeOptions="actionNext"
+                            android:backgroundTint="@color/colorWhite"
+                            android:textColor="@color/colorWhite"
+                            android:inputType="text"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnpassword"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/lnemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:iiv_color="@color/colorWhite"
+                        app:iiv_icon="faw_key" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/colorHint">
+
+                        <EditText
+                            android:id="@+id/pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:hint="@string/password"
+                            android:imeOptions="actionNext"
+                            android:backgroundTint="@color/colorWhite"
+                            android:inputType="textPassword"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_below="@id/lnpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/button_white"
+                    android:text="@string/login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorRose"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/belum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/login"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerInParent="true"
+                    android:text="@string/belum"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorBelum"/>
+                <Button
+                    android:id="@+id/register"
+                    android:layout_below="@id/belum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginRight="70dp"
+                    android:background="@drawable/button_transparent"
+                    android:text="@string/register"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorRose"
+                    android:textSize="15sp"/>
+            </RelativeLayout>
         </RelativeLayout>
-
-    </RelativeLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout >
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
