@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextView txtLogin;
     EditText email;
     EditText userName;
-    EditText password;
+    EditText password,confPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.et_reg_input_email);
         userName = findViewById(R.id.et_reg_input_name);
         password = findViewById(R.id.et_reg_input_password);
+        confPass = findViewById(R.id.conf_reg_password);
     }
 
     private void initButton() {
@@ -52,11 +53,17 @@ public class RegisterActivity extends AppCompatActivity {
                 if (email.getText().toString().equals("")) {
                     Toast.makeText(RegisterActivity.this, "Email Tidak boleh kosong", Toast.LENGTH_SHORT).show();
                 } else if (password.getText().toString().equals("")) {
-                    Toast.makeText(RegisterActivity.this, "Passeord Tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Password Tidak boleh kosong", Toast.LENGTH_SHORT).show();
                 } else if (userName.getText().toString().equals("")) {
                     Toast.makeText(RegisterActivity.this, "Nama harus diisi", Toast.LENGTH_SHORT).show();
-                } else {
-                    register();
+                }
+                else {
+                    if (password.getText().toString().equals(confPass.getText().toString())) {
+                        register();
+                    }
+                    else{
+                        Toast.makeText(RegisterActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -88,7 +95,6 @@ public class RegisterActivity extends AppCompatActivity {
                             if (res.getStatus().equals("success")) {
                                 Toast.makeText(RegisterActivity.this,
                                         "Register Berhasil, silakan login kembali", Toast.LENGTH_SHORT).show();
-                                finish();
                             } else {
                                 Toast.makeText(RegisterActivity.this,
                                         "Username sudah digunakan", Toast.LENGTH_SHORT).show();
