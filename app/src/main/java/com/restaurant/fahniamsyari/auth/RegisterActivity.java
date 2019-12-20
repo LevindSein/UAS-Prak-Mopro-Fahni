@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,9 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.restaurant.fahniamsyari.R;
 import com.restaurant.fahniamsyari.model.RegisterResponse;
 import com.restaurant.fahniamsyari.utils.DialogUtils;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.restaurant.fahniamsyari.data.Constans.REGISTER;
 
@@ -52,19 +56,34 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (email.getText().toString().equals("")) {
-                    Toast.makeText(RegisterActivity.this, "Email Tidak boleh kosong", Toast.LENGTH_SHORT).show();
-                } else if (password.getText().toString().equals("")) {
-                    Toast.makeText(RegisterActivity.this, "Password Tidak boleh kosong", Toast.LENGTH_SHORT).show();
-                } else if (userName.getText().toString().equals("")) {
-                    Toast.makeText(RegisterActivity.this, "Nama harus diisi", Toast.LENGTH_SHORT).show();
+                if(isEmailValid(email.getText()))
+                {
+                    if (email.getText().toString().equals("")) {
+                        Toast.makeText(RegisterActivity.this, "Email Tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    } else if (password.getText().toString().equals("")) {
+                        Toast.makeText(RegisterActivity.this, "Password Tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    } else if (userName.getText().toString().equals("")) {
+                        Toast.makeText(RegisterActivity.this, "Nama harus diisi", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        if (password.getText().toString().equals(confPass.getText().toString())) {
+                            register();
+                        }
+                        else{
+                            Toast.makeText(RegisterActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
-                else {
-                    if (password.getText().toString().equals(confPass.getText().toString())) {
-                        register();
+                else{
+                    if (email.getText().toString().equals("")) {
+                        Toast.makeText(RegisterActivity.this, "Email Tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    } else if (password.getText().toString().equals("")) {
+                        Toast.makeText(RegisterActivity.this, "Password Tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    } else if (userName.getText().toString().equals("")) {
+                        Toast.makeText(RegisterActivity.this, "Nama harus diisi", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        Toast.makeText(RegisterActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Format email salah", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -96,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     response;
                             if (res.getStatus().equals("success")) {
                                 Toast.makeText(RegisterActivity.this,
-                                        "Register Berhasil, silakan login kembali", Toast.LENGTH_SHORT).show();
+                                        "Register Berhasil, silakan login kembali", Toast.LENGTH_LONG).show();
                             } else {
                                 Toast.makeText(RegisterActivity.this,
                                         "Username sudah digunakan", Toast.LENGTH_SHORT).show();
@@ -132,5 +151,12 @@ public class RegisterActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("Tidak", null)
                 .show();
+    }
+
+    public static boolean isEmailValid(Editable email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 }
