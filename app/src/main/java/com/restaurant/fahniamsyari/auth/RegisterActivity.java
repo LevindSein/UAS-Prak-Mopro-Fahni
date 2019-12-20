@@ -3,8 +3,10 @@ package com.restaurant.fahniamsyari.auth;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -105,8 +107,10 @@ public class RegisterActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-                        Toast.makeText(RegisterActivity.this,
-                                "Terjadi kesalahan API", Toast.LENGTH_SHORT).show();
+                        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                        if (cm.getActiveNetworkInfo() == null){
+                            Toast.makeText(RegisterActivity.this, "Internet tidak Aktif", Toast.LENGTH_SHORT).show();
+                        }
                         DialogUtils.closeDialog();
                     }
                 });

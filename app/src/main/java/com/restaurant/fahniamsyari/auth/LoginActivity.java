@@ -4,8 +4,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -90,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                                 session.setUserId(res.getLogin().getUserid());
                                 loginCheck();
                             } else {
-                                Toast.makeText(LoginActivity.this, "Email atau Username Salah", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Email Salah", Toast.LENGTH_SHORT).show();
                             }
                         }
                         DialogUtils.closeDialog();
@@ -98,9 +100,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-                        Toast.makeText(LoginActivity.this, "Terjadi kesalahan API", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(LoginActivity.this, "Terjadi kesalahan API :"+anError.getCause().toString(),
-                                Toast.LENGTH_SHORT).show();
+                        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                        if (cm.getActiveNetworkInfo() == null){
+                            Toast.makeText(LoginActivity.this, "Internet tidak Aktif", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
+                        }
                         DialogUtils.closeDialog();
                     }
                 });

@@ -8,7 +8,7 @@ public class DialogUtils {
 
     public static void openDialog(Context context) {
         progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Loading . . . ");
+        progressDialog.setMessage("Tunggu . . . ");
         progressDialog.show();
     }
 
