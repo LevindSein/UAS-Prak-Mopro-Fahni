@@ -17,6 +17,8 @@ import com.restaurant.fahniamsyari.data.Session;
 import com.restaurant.fahniamsyari.model.RegisterResponse;
 import com.restaurant.fahniamsyari.utils.DialogUtils;
 
+import static com.restaurant.fahniamsyari.data.Constans.UPDATE_PROFILE_USER;
+
 public class ChangePasswordActivity extends AppCompatActivity {
     Session session;
     EditText name,oldPass,newPass;
@@ -60,7 +62,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     public void updateUser() {
         DialogUtils.openDialog(this);
 
-        AndroidNetworking.post(Constans.UPDATE_PROFILE_USER+"/"+session.getUserId())
+        AndroidNetworking.post(UPDATE_PROFILE_USER+"/"+session.getUserId())
                 .addBodyParameter("nama", name.getText().toString())
                 .addBodyParameter("old_password", oldPass.getText().toString())
                 .addBodyParameter("new_password", newPass.getText().toString())
@@ -86,8 +88,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         Toast.makeText(ChangePasswordActivity.this,
                                 "Terjadi kesalahan API", Toast.LENGTH_SHORT).show();
                         Toast.makeText(ChangePasswordActivity.this,
-                                "Terjadi kesalahan API : "+anError.getCause().toString(),
-                                Toast.LENGTH_SHORT).show();
+                                "Terjadi kesalahan API : "+anError.getCause().toString(), Toast.LENGTH_SHORT).show();
                         DialogUtils.closeDialog();
                     }
                 });

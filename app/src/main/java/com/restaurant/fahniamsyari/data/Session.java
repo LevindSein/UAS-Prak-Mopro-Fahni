@@ -19,8 +19,7 @@ public class Session {
     private static final String IS_NOT_ALARMT = "IsAlarm";
     public Session(Context context) {
         this._context = context;
-        pref = _context.getSharedPreferences(PREF_NAME,
-                PRIVATE_MODE);
+        pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
     }
     public void checkLogin() {

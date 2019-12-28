@@ -28,8 +28,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         void onClick(int position);
     }
 
-    public void setOnItemClickListener(final OnItemClickListener
-                                               mItemClickListener) {
+    public void setOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mOnItemClickListener = mItemClickListener;
     }
 

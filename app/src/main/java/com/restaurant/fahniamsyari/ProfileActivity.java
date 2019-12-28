@@ -13,9 +13,10 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.restaurant.fahniamsyari.data.Constans;
 import com.restaurant.fahniamsyari.data.Session;
 import com.restaurant.fahniamsyari.model.LoginResponse;
+
+import static com.restaurant.fahniamsyari.data.Constans.GET_PROFIL_USER;
 
 public class ProfileActivity extends AppCompatActivity {
     Session session;
@@ -35,12 +36,10 @@ public class ProfileActivity extends AppCompatActivity {
     //Method untuk load data dari api
     public void loadItem() {
         //show progress dialog
-        Toast.makeText(this, "id "+ session.getUserId(),
-                Toast.LENGTH_SHORT).show();
-        progressDialog.setMessage("Please Wait..");
+        Toast.makeText(this, "id "+ session.getUserId(), Toast.LENGTH_SHORT).show();
+        progressDialog.setMessage("Tunggu Ya..");
         progressDialog.show();
-        AndroidNetworking.get(Constans.GET_PROFIL_USER + "/" +
-                session.getUserId())
+        AndroidNetworking.get(GET_PROFIL_USER + "/" + session.getUserId())
                 .build()
                 .getAsObject(LoginResponse.class, new ParsedRequestListener() {
                     @Override

@@ -11,3 +11,5 @@ application update :
 - checking internet
 - checking password
 - checking email format
+- adding resto
+- delete resto
