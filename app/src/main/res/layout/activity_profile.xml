@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -17,9 +17,10 @@
             android:layout_height="240dp">
 
             <LinearLayout
+                android:id="@+id/profile"
                 android:layout_width="match_parent"
                 android:layout_height="242dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/background"
                 android:orientation="vertical">
 
                 <ImageView
@@ -27,13 +28,15 @@
                     android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="45dp"
-                    android:src="@drawable/white_user" />
+                    android:src="@drawable/user" />
             </LinearLayout>
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="360dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:orientation="vertical">
@@ -47,7 +50,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/white_user" />
+                    android:src="@drawable/user" />
 
                 <TextView
                     android:id="@+id/tv_name"
@@ -56,8 +59,7 @@
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    tools:text="Wiliam@gmail.com" />
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
@@ -70,7 +72,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/white_user" />
+                    android:src="@drawable/user" />
 
                 <TextView
                     android:id="@+id/tv_user_id"
@@ -78,8 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    tools:text="Fadil" />
+                    android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -88,10 +89,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="35dp"
-            android:background="@color/colorPrimary"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/button_white"
             android:padding="10dp"
+            android:layout_marginBottom="10dp"
             android:text="Change Password"
-            android:textColor="#fff" />
+            android:textAllCaps="false"
+            android:textColor="@color/colorRose"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

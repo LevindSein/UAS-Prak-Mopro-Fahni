@@ -32,7 +32,6 @@ public class DashboardActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     Session session;
     SearchView svRestaurant;
-    String kosong = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -13,7 +13,10 @@
         android:layout_margin="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="cari restoran" />
+        android:queryHint="Cari Restoran"
+        android:searchIcon="@drawable/searching_menu"
+        android:layoutDirection="rtl"
+        android:queryBackground="@drawable/transparan"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_restaurant"
