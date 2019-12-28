@@ -1,4 +1,4 @@
-====== 1167050058 Fahni Amsyari ======
+======= 1167050058 Fahni Amsyari =======
 
 application update :
 - added logo
