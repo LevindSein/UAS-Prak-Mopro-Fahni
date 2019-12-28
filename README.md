@@ -11,5 +11,5 @@ application update :
 - checking internet
 - checking password
 - checking email format
-- adding resto
+- add resto
 - delete resto

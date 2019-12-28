@@ -21,13 +21,14 @@ import static com.restaurant.fahniamsyari.data.Constans.UPDATE_PROFILE_USER;
 
 public class ChangePasswordActivity extends AppCompatActivity {
     Session session;
-    EditText name,oldPass,newPass;
+    EditText name,oldPass,newPass,confOldPass;
     Button changeProfil;
     ProgressDialog progressDialog;
     String nama="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_change_password);
         session = new Session(this);
         progressDialog = new ProgressDialog(this);
@@ -40,6 +41,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         oldPass = findViewById(R.id.et_old_password);
         newPass = findViewById(R.id.et_new_password);
         changeProfil = findViewById(R.id.btn_change_profil);
+        confOldPass = findViewById(R.id.conf_new_password);
         name.setText(nama);
     }
     private void initClick() {
@@ -54,7 +56,12 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     Toast.makeText(ChangePasswordActivity.this, "password baru harus diisi", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    updateUser();
+                    if (newPass.getText().toString().equals(confOldPass.getText().toString())) {
+                        updateUser();
+                    }
+                    else{
+                        Toast.makeText(ChangePasswordActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
